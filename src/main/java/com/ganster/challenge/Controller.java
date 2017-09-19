@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.Arrays.asList;
-
 /**
  * Created by Paul Ganster on 9/18/2017.
  */
@@ -25,9 +23,7 @@ public class Controller {
         Collections.sort(sortedKeys);
 
         StringBuffer joiner = new StringBuffer();
-        sortedKeys.stream().forEach(key -> {
-            joiner.append(nodeMap.get(key).getValue());
-        });
+        sortedKeys.stream().forEach(key -> joiner.append(nodeMap.get(key).getValue()));
 
         return joiner.toString();
     }
