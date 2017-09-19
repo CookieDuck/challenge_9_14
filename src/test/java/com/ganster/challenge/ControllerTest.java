@@ -8,7 +8,6 @@ import org.junit.runners.JUnit4;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Paul Ganster on 9/18/2017.

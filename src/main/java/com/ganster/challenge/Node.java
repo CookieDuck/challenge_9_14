@@ -1,5 +1,6 @@
 package com.ganster.challenge;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -9,7 +10,15 @@ import lombok.Data;
 @Data
 @Builder
 public class Node {
+    @JsonProperty
     int value;
+
+    @JsonProperty
     Node left;
+
+    @JsonProperty
     Node right;
+
+    int score;
+    int depth;
 }
