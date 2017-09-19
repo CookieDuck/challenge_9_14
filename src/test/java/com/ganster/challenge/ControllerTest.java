@@ -38,19 +38,6 @@ public class ControllerTest {
 
     @Test
     public void test2() throws IOException {
-//        Node root = Node.builder().
-//                value(1).
-//                left(Node.builder().value(2).left(
-//                        Node.builder().value(3).build()
-//                ).right(
-//                        Node.builder().value(4).build()
-//                ).build())
-//                .right(Node.builder().value(5).left(
-//                        Node.builder().value(6).build()
-//                ).right(
-//                        Node.builder().value(7).build()
-//                ).build()).build();
-
         Node root = objectMapper.readValue("{\n" +
                 "  \"value\": 6,\n" +
                 "  \"left\": {\n" +

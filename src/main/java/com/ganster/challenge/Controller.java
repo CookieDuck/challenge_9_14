@@ -1,6 +1,8 @@
 package com.ganster.challenge;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
@@ -10,18 +12,20 @@ import java.util.stream.Collectors;
  * Created by Paul Ganster on 9/18/2017.
  */
 @RestController
+@Slf4j
 public class Controller {
-
     @PutMapping("/tree")
-    public String getTopLevel(Node root) {
+    public String getTopLevel(@RequestBody Node root) {
+        log.info("Received {}", root);
         assignScoreAndDepth(root, 0, 1);
         Map<Integer, Node> nodeMap = new HashMap<>();
         addToMap(nodeMap, root);
 
         Set<Integer> keys = nodeMap.keySet();
-        List<Integer> sortedKeys =keys.stream().collect(Collectors.toList());
+        List<Integer> sortedKeys = keys.stream().collect(Collectors.toList());
         Collections.sort(sortedKeys);
 
+        sortedKeys.stream().forEach(k -> log.info("Key {} has value: {}", k, nodeMap.get(k)));
         StringBuffer joiner = new StringBuffer();
         sortedKeys.stream().forEach(key -> joiner.append(nodeMap.get(key).getValue()));
 
